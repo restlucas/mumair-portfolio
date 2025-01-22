@@ -12,6 +12,7 @@ export const useSystemTheme = (): "light" | "dark" => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      console.log(window.innerWidth);
       const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
       setSystemTheme(darkMode.matches ? "dark" : "light");
 

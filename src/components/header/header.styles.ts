@@ -23,7 +23,7 @@ export const LogoName = styled.h1`
   }
 `;
 
-export const Navigation = styled.nav`
+export const DesktopNavigation = styled.nav`
   @media (max-width: 1300px) {
     display: none;
   }

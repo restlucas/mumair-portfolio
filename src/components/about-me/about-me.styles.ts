@@ -32,14 +32,14 @@ export const AboutMeContainer = styled.section`
   }
 `;
 
-export const ImageContainer = styled.div<{ imagesrc: string }>`
+export const ImageContainer = styled.div<{ $imageSrc: string }>`
   position: relative;
   width: 550px;
   height: 675px;
 
   display: block;
 
-  background-image: url(${({ imagesrc }) => imagesrc});
+  background-image: url(${({ $imageSrc }) => $imageSrc});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -55,7 +55,7 @@ export const Testimonials = () => {
           {Array.from({ length: totalCards }).map((_, index) => {
             return (
               <Card selected={currentIndex === index} key={index}>
-                <UserPhoto imagesrc="/testimonial.jpg" />
+                <UserPhoto $imageSrc="/testimonial.jpg" />
                 <UserComment>
                   <p>
                     Lorem ipsum dolor sit amet consectetur. In enim cursus odio

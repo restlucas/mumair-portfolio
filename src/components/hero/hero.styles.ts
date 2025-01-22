@@ -100,7 +100,7 @@ export const HeroContainer = styled.section`
   }
 `;
 
-export const CardImage = styled.div<{ imagesrc: string }>`
+export const CardImage = styled.div<{ $imageSrc: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +112,7 @@ export const CardImage = styled.div<{ imagesrc: string }>`
     width: 480px;
     height: 560px;
 
-    background-image: url(${({ imagesrc }) => imagesrc});
+    background-image: url(${({ $imageSrc }) => $imageSrc});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

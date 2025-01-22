@@ -96,14 +96,14 @@ export const Card = styled.div<{ selected: boolean }>`
   }
 `;
 
-export const UserPhoto = styled.div<{ imagesrc: string }>`
+export const UserPhoto = styled.div<{ $imageSrc: string }>`
   width: 235px;
   height: 235px;
   border-radius: 9999px;
 
   grid-row: 1 / 3;
 
-  background-image: url(${({ imagesrc }) => imagesrc});
+  background-image: url(${({ $imageSrc }) => $imageSrc});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -13,7 +13,7 @@ const skillsProgress = [95, 80, 85, 90];
 export function AboutMe() {
   return (
     <AboutMeContainer id="about-me">
-      <ImageContainer imagesrc={"/man-2.svg"} />
+      <ImageContainer $imageSrc={"/man-2.svg"} />
       <div>
         <h1>About Me</h1>
         <p>

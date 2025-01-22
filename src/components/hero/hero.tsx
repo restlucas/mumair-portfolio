@@ -26,7 +26,7 @@ export function Hero() {
         <button>Hire Me</button>
       </div>
 
-      <CardImage imagesrc="/man.png">
+      <CardImage $imageSrc="/man.png">
         <div />
         <HeroLinks>
           <Link href="">

@@ -1,5 +1,4 @@
-"use client";
-
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,26 +6,31 @@ import {
   HeaderContainer,
   Logo,
   LogoName,
+  MobileMenuWrapper,
   MobileMenu,
   MobileMenuNavigation,
-  MobileMenuWrapper,
+  DesktopNavigation,
   MobileNavigation,
-  Navigation,
 } from "./header.styles";
 import MenuIcon from "../../assets/menu.svg";
-import { useState } from "react";
 
 export function Header() {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setShowMenu((prev) => !prev);
+  }, []);
+
+  const closeMenu = () => setShowMenu(false);
 
   return (
     <HeaderContainer>
       <Logo>
-        <Image alt="Mumair logo" src={"./logo.svg"} width={50} height={50} />
+        <Image alt="Mumair logo" src="/logo.svg" width={50} height={50} />
         <LogoName>Mumair</LogoName>
       </Logo>
 
-      <Navigation>
+      <DesktopNavigation>
         <ul className="flex items-center justify-end gap-3">
           <li>
             <Link href="#home" className="px-[14px] py-[10px]">
@@ -60,9 +64,9 @@ export function Header() {
           </li>
         </ul>
         <button type="button">Download CV</button>
-      </Navigation>
+      </DesktopNavigation>
 
-      <MobileNavigation onClick={() => setShowMenu(true)}>
+      <MobileNavigation onClick={toggleMenu}>
         <MenuIcon />
       </MobileNavigation>
 
@@ -72,35 +76,36 @@ export function Header() {
             <MobileMenuNavigation>
               <ul>
                 <li>
-                  <Link href="">Home</Link>
+                  <Link href="#home" onClick={closeMenu}>
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#about-me" onClick={() => setShowMenu(false)}>
+                  <Link href="#about-me" onClick={closeMenu}>
                     About Me
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" onClick={() => setShowMenu(false)}>
+                  <Link href="#services" onClick={closeMenu}>
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="#projects" onClick={() => setShowMenu(false)}>
+                  <Link href="#projects" onClick={closeMenu}>
                     Projects
                   </Link>
                 </li>
                 <li>
-                  <Link href="#testimonials" onClick={() => setShowMenu(false)}>
+                  <Link href="#testimonials" onClick={closeMenu}>
                     Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contacts" onClick={() => setShowMenu(false)}>
+                  <Link href="#contacts" onClick={closeMenu}>
                     Contacts
                   </Link>
                 </li>
               </ul>
-
               <button type="button">Download CV</button>
             </MobileMenuNavigation>
           </MobileMenu>
