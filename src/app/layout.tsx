@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "PotentialAI | Mumair",
+  title: "Mumair Portfolio",
   description: "A landing page portfolio",
 };
 
