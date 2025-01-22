@@ -17,11 +17,22 @@ import {
 
 export const Testimonials = () => {
   const totalCards = 4;
+  const [screenSize, setScreenSize] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleButtonClick = (index: number) => {
     setCurrentIndex(index);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const updateScreenSize = () => setScreenSize(window.innerWidth);
+
+      updateScreenSize();
+      window.addEventListener("resize", updateScreenSize);
+      return () => window.removeEventListener("resize", updateScreenSize);
+    }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +51,7 @@ export const Testimonials = () => {
       </TestimonialsSubtitle>
 
       <Carousel>
-        <Wrapper index={currentIndex}>
+        <Wrapper $index={currentIndex} $screenSize={screenSize}>
           {Array.from({ length: totalCards }).map((_, index) => {
             return (
               <Card selected={currentIndex === index} key={index}>

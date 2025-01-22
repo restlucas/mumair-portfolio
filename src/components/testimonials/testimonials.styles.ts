@@ -32,13 +32,13 @@ export const Carousel = styled.div`
   }
 `;
 
-export const Wrapper = styled.div<{ index: number }>`
+export const Wrapper = styled.div<{ $index: number; $screenSize: number }>`
   height: 100%;
   width: calc(100vw - 40vw - (2 * 2.75rem));
   transition: transform 0.5s ease-in-out;
 
-  transform: ${({ index }) => {
-    const screenSize = window.innerWidth;
+  transform: ${({ $index, $screenSize }) => {
+    const screenSize = $screenSize;
     let multiplier;
 
     if (screenSize > 1600) {
@@ -51,7 +51,7 @@ export const Wrapper = styled.div<{ index: number }>`
 
     const baseWidth = screenSize * multiplier - 2 * 2.75 * 16;
 
-    return `translateX(-${index * baseWidth + index * 64}px)`;
+    return `translateX(-${$index * baseWidth + $index * 64}px)`;
   }};
 
   flex-wrap: nowrap;
